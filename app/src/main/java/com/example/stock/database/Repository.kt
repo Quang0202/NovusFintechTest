@@ -29,7 +29,7 @@ class StockRepository @Inject constructor() {
             Stock("AAPL", "Apple Inc.", 150.0, 0.0),
             Stock("SBUX", "Starbucks Corporation", 110.0, 0.0),
             Stock("BHP", "BHP Billiton Limited", 55.0, 0.0),
-            Stock("THC","Tenet Healthcare Corporation", 60.0, 0.0)
+            Stock("THC","Tenet Healthcare Corporation", 60.0, 0.0),
         )
     }
 
