@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Stock</string>
+    <string name="search_place_holder">Search</string>
+</resources>
