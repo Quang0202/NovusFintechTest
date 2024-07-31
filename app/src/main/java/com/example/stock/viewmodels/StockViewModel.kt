@@ -1,11 +1,10 @@
 package com.example.stock.viewmodels
 
 import android.util.Log
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import com.example.stock.database.StockRepository
+import com.example.stock.repositories.StockRepository
 import com.example.stock.models.Stock
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.example.stock.database
+package com.example.stock.repositories
 
 import com.example.stock.models.Stock
 import kotlinx.coroutines.CoroutineScope

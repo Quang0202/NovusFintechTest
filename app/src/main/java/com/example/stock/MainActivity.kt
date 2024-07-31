@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
@@ -107,35 +108,43 @@ fun StockListScreen(viewModel: StockViewModel) {
             .fillMaxSize()
             .background(Color.Black)
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(2.dp)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 10.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp)
-            ) {
+            Box {
                 Text(
                     "Stocks",
                     color = Color.White,
-                    fontSize = 30.sp,
+                    fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Bottom)
                 )
-                Spacer(modifier = Modifier.weight(1f))
-                IconButton(
-                    onClick = { /* TODO */ }) {
-                    Icon(Icons.Default.MoreVert, contentDescription = "More", tint = Color.White)
-                }
+                Text(
+                    text = "$dayOfMonth $month",
+                    color = Color.Gray,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 25.sp,
+                    modifier = Modifier.padding(top = 28.dp)
+                )
             }
-            Text(
-                text = "$dayOfMonth $month",
-                color = Color.Gray,
-                fontWeight = FontWeight.Bold,
-                fontSize = 30.sp,
-                modifier = Modifier.padding(start = 16.dp)
-            )
+            Spacer(modifier = Modifier.weight(1f))
+            IconButton(
+                onClick = { /* TODO */ },
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .clip(CircleShape)
+                    .size(30.dp)
+                    .padding(5.dp)
+                    .background(StocksDarkSelectedChip)
+            ) {
+                Icon(
+                    Icons.Default.MoreVert,
+                    contentDescription = "More",
+                    tint = StockBlue,
+                    modifier = Modifier.graphicsLayer(rotationZ = 90f)
+                )
+            }
         }
 
         CustomTextField(
@@ -271,7 +280,7 @@ fun StockItem(stock: Stock) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(horizontal = 16.dp, vertical = 10.dp)
             .background(Color.Black)
     ) {
         Column {
@@ -285,7 +294,8 @@ fun StockItem(stock: Stock) {
                 stock.companyName,
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.Gray,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(top = 5.dp)
             )
         }
         Spacer(modifier = Modifier.weight(1f))
